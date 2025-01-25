@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="register.css">
+	<title>Регистрация</title>
+</head>
+<body>
+	<main class="main">
+		<div class="logo">
+			<img src="./images/register-logo.png" alt="grok-logo">
+		</div>
+		<a href="./login.html" class="main__button">Войти</a>
+		<form class="form" action="">
+			<h3 class="form__tilte">Регистрация</h3>
+			<div class="input__group">
+				<label for="email" class="form__label">E-mali</label>
+				<input id="email" type="email" name="email" class="form__input" placeholder="" oninput="handleInput(this)">
+			</div>
+			<div class="input__group">
+				<label for="password" class="form__label">Password</label>
+				<input id="password" type="password" name="password" class="form__input" placeholder="" oninput="handleInput(this)">
+			</div>
+			<button class="form__button">Регистрация</button>
+		</form>
+	</main>
+	<script>
+		function handleInput(input) {
+			const parent = input.parentElement;
+			if (input.value.trim() !== "") {
+				parent.classList.add("has-content");
+			} else {
+				parent.classList.remove("has-content");
+			}
+		}
+	</script>
+</body>
+</html>
