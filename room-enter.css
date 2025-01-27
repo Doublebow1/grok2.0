@@ -1,3 +1,8 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
 body {
 	font-family: sans-serif;
 	background-color: #D9D9D9;
@@ -19,17 +24,21 @@ button {
 }
 
 .button {
-	height: 124px;
-	width: 500px;
+	height: 104px;
+	width: 400px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	gap: 20px;
+	gap: 30px;
 	font-size: 22px;
 	border-radius: 12px;
 	border: 3px solid #fff;
 	color: #fff;
 	box-shadow: 1px 3px 3px #797979;
+	transition: all 0.3s;
+	&:hover {
+		box-shadow: 2px 4px 4px #000;
+	}
 }
 
 .create-room__button {
@@ -40,19 +49,46 @@ button {
 	background-color: #000;
 }
 
-.pop-up {
-	display: none;
-	position: absolute;
-	top: 30%;
-	left: 35%;
-	height: 230px;
-	width: 450px;
-	/* display: flex; */
+.popup {
+	opacity: 0;
+	visibility: hidden;
+	position: fixed;
+	width: 100vw;
+	height: 100vh;
+	background-color: #00000088;
+	top: 0;
+	left: 0;
+	transition: all 0.5s;
+}
+
+.popup.open .popup__content {
+	transform: perspective(600px) translate(0px, 0px) rotateX(0deg);
+	opacity: 1;
+}
+
+.popup__body {
+	min-height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.popup.open {
+	opacity: 1;
+	visibility: visible;
+}
+
+.popup__content {
+	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: center;
+	gap: 40px;
+	opacity: 0;
+	transition: all 0.5s;
+	transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
 	color: #fff;
-	padding: 10px 0;
+	padding: 30px 100px;
 	border-radius: 12px;
 }
 
@@ -66,11 +102,14 @@ button {
 	border: 3px solid #fff;
 }
 
-.pop-up__input {
+.popup__input {
 	padding: 5px 20px;
 	border-radius: 12px;
 	text-align: center;
 	outline: none;
+	&:focus {
+		border: 2px dashed #000;
+	}
 }
 
 .create {
@@ -78,6 +117,10 @@ button {
 	color: #fff;
 	border-radius: 12px;
 	padding: 7px 37px;
+	transition: all 0.3s;
+	&:hover {
+		box-shadow: 1px 2px 3px #fff;
+	}
 }
 
 .enter {
@@ -85,4 +128,7 @@ button {
 	color: #000;
 	border-radius: 12px;
 	padding: 7px 37px;
+	&:hover {
+		box-shadow: 0 2px 3px #ffffff;
+	}
 }
